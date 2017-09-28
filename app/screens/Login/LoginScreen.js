@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import styles from './loginstyles.js';
 import {loginAction} from '../../actions/securityActions.js';
+import {connect} from 'react-redux';
 
 class LoginScreen extends React.Component {
 	
@@ -27,7 +28,6 @@ class LoginScreen extends React.Component {
 
 		this.handleChangeEmail = this.handleChangeEmail.bind(this);
 		this.handleChangePassword = this.handleChangePassword.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 }
 
 	handleChangeEmail = (event) => {
@@ -71,4 +71,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
