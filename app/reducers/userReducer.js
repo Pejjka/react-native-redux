@@ -12,7 +12,8 @@ const initalState = {
 		profile_picture: "",
 		token: 'fasfafsasf'	
 	},
-	token: 'token'
+	token: 'token',
+	isFetching: false
 }
 
 export default function userReducer(state = initalState, action) {
@@ -25,7 +26,13 @@ export default function userReducer(state = initalState, action) {
 		}
 		case "CHANGE_TOKEN": {
 			console.warn('changing token');
-			state.token = action.email;
+			state.token = action.token;
+			state.isFetching = false;
+			return {...state, state}
+		}
+		case "LOGGING_IN": {
+			console.warn('inside logging in');
+			state.isFetching = true;
 			return {...state, state}
 		}
 	}

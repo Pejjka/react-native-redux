@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
 // Call function from actions instead of dispatch.
 const mapDispatchToProps = (dispatch) => {
 	return {
-		changeUserName: (name) => dispatch({type:'CHANGE_USER_NAME'})
+		changeUserName: (name) => dispatch(changeUserNameAction(name))
 	}
 }
 

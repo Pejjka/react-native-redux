@@ -10,7 +10,7 @@ import {
     Button
 } from 'react-native';
 import styles from './loginstyles.js';
-import {loginAction} from '../../actions/securityActions.js';
+import { loginAction } from '../../actions/securityActions.js';
 import {connect} from 'react-redux';
 
 class LoginScreen extends React.Component {
@@ -43,8 +43,8 @@ class LoginScreen extends React.Component {
   render() {
 		const { navigate } = this.props.navigation;
 		const {user} = this.props.user;
-    return (
 
+    return (
 			<View style={styles.container}>
 				<Text style={styles.textinput}>Email</Text>
 				<TextInput style={styles.textinput} label="E-mail" keyboardType='email-address' value={this.state.email} onChangeText={this.handleChangeEmail} />
@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
 // Call function from actions instead of dispatch.
 const mapDispatchToProps = (dispatch) => {
 	return {
-		login: (email, password) => dispatch({type: 'CHANGE_TOKEN', email: email, password: password})
+		login: (email, password) => dispatch(loginAction(email, password))
 	}
 }
 

@@ -8,6 +8,6 @@ import acios from "axios";
 
 export function changeUserNameAction(name) {
 	return (dispatch) => { 
-		dispatch('CHANGE_USER_NAME', name)
+		dispatch({type: 'CHANGE_USER_NAME', name: name})
 	}
 }
