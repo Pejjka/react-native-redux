@@ -23,7 +23,7 @@ class HomeScreen extends React.Component {
       <Button
         title="Go to Login Screen"
         onPress={() =>
-         navigate('Login', { name: 'Jane' })
+         navigate('Login')
         }
       />
 			</View> 

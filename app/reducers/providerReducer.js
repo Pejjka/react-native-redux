@@ -1,7 +1,5 @@
-//This is example reducer
-
 const initalState = {
-	provider: ''
+	provider: 'saf'
 }
 
 export default function providerReducer(state = initalState, action) {

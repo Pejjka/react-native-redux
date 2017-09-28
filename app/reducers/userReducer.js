@@ -21,16 +21,17 @@ export default function userReducer(state = initalState, action) {
 		case "CHANGE_USER_NAME": {
 			state.user.name = action.name;
 			return {...state, state};
-			break;
 		}
 		case "CHANGE_TOKEN": {
 			state.token = action.token;
 			state.isFetching = false;
 			return {...state, state}
 		}
-		//Dispatch type that can be called while waiting for login
 		case "LOGGING_IN": {
 			state.isFetching = true;
+			return {...state, state}
+		}
+		case "SIGNUP": {
 			return {...state, state}
 		}
 	}
