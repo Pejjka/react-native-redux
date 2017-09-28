@@ -10,9 +10,8 @@ const initalState = {
 		latitude: "",
 		longitude: "",
 		profile_picture: "",
-		token: 'fasfafsasf'	
 	},
-	token: 'token',
+	token: '',
 	isFetching: false
 }
 
@@ -25,13 +24,12 @@ export default function userReducer(state = initalState, action) {
 			break;
 		}
 		case "CHANGE_TOKEN": {
-			console.warn('changing token');
 			state.token = action.token;
 			state.isFetching = false;
 			return {...state, state}
 		}
+		//Dispatch type that can be called while waiting for login
 		case "LOGGING_IN": {
-			console.warn('inside logging in');
 			state.isFetching = true;
 			return {...state, state}
 		}
