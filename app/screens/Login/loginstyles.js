@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
+		justifyContent: 'center',
+		alignItems: 'center'
   },
     textinput: {
 			alignItems: 'flex-start'

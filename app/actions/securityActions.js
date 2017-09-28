@@ -1,5 +1,6 @@
 export function loginAction(email, password) {
-	fetch('http://example.com', {
+	console.warn('in login action');
+	fetch('http://192.168.5.180/api/auth/login', {
 		method: 'POST',
 		headers: {
 				'Accept': 'application/json',
@@ -12,9 +13,10 @@ export function loginAction(email, password) {
 	})
 	.then((response) => response.json())
 	.then(responseJson => {
-		return (dispatch) => { 
-			dispatch('LOGIN', {user: responseJson.data})
-		}
+		console.warn(responseJson.token);
+		// return (dispatch) => { 
+		// 	dispatch('CHANGE_TOKEN', {token: responseJson.token})
+		// }
 	})
 	
 }

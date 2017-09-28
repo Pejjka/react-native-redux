@@ -43,7 +43,6 @@ class LoginScreen extends React.Component {
   render() {
 		const { navigate } = this.props.navigation;
 		const {user} = this.props.user;
-
     return (
 
 			<View style={styles.container}>
@@ -51,7 +50,14 @@ class LoginScreen extends React.Component {
 				<TextInput style={styles.textinput} label="E-mail" keyboardType='email-address' value={this.state.email} onChangeText={this.handleChangeEmail} />
 				<Text style={styles.textinput} >Password</Text>
 				<TextInput style={styles.textinput} secureTextEntry={true} label="Password" value={this.state.password} onChangeText={this.handleChangePassword} />
-				<Button title="Login" onPress={this.props.login(this.state.email, this.state.password)}/>
+
+				<Button
+					title="Login"
+					onPress={() =>
+						this.props.login(this.state.email, this.state.password)
+					}
+      	/>
+			<Text> Token: {this.props.token} </Text>
 			</View>
     );
   }
@@ -60,14 +66,17 @@ class LoginScreen extends React.Component {
 // add some more props that come from the global state tree
 const mapStateToProps = (state) => {
   return {
-		user: state.user
+		//this is accessing user reducer. {user} = this.props.user this is accesing user object inside reducer
+		user: state.user,
+		//this is accessing user reducer and token variable
+		token: state.user.token
   }
 }
 
 // Call function from actions instead of dispatch.
 const mapDispatchToProps = (dispatch) => {
 	return {
-		login: (email, password) => loginAction(email, password)
+		login: (email, password) => dispatch({type: 'CHANGE_TOKEN', email: email, password: password})
 	}
 }
 

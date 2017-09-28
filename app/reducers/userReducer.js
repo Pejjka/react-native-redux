@@ -9,8 +9,10 @@ const initalState = {
 		status: "",
 		latitude: "",
 		longitude: "",
-		profile_picture: ""	
-	}
+		profile_picture: "",
+		token: 'fasfafsasf'	
+	},
+	token: 'token'
 }
 
 export default function userReducer(state = initalState, action) {
@@ -20,6 +22,11 @@ export default function userReducer(state = initalState, action) {
 			state.user.name = action.name;
 			return {...state, state};
 			break;
+		}
+		case "CHANGE_TOKEN": {
+			console.warn('changing token');
+			state.token = action.email;
+			return {...state, state}
 		}
 	}
 
