@@ -12,6 +12,7 @@ import {
 import styles from './loginstyles.js';
 import { loginAction } from '../../actions/securityActions.js';
 import {connect} from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 
 class LoginScreen extends React.Component {
 	
@@ -42,7 +43,19 @@ class LoginScreen extends React.Component {
 
   render() {
 		const { navigate } = this.props.navigation;
+		//navigate('Home');
 		const {user} = this.props.user;
+
+		// if (this.props.token !== '') {
+		// 	const resetAction = NavigationActions.reset({
+		// 		index: 0,
+		// 		actions: [
+		// 			NavigationActions.navigate({ routeName: 'Home'})
+		// 		]
+		// 	});
+			
+		// 	this.props.navigation.dispatch(resetAction);
+		// }
 
     return (
 			<View style={styles.container}>
@@ -72,7 +85,7 @@ class LoginScreen extends React.Component {
 // add some more props that come from the global state tree
 const mapStateToProps = (state) => {
   return {
-		//this is accessing user reducer. {user} = this.props.user this is accesing user object inside reducer
+		//this is accessing user reducer. != {user} = this.props.user this is accesing user object inside reducer
 		user: state.user,
 		//this is accessing user reducer and token variable
 		token: state.user.token
