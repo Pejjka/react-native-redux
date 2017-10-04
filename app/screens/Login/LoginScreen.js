@@ -41,7 +41,7 @@ class LoginScreen extends React.Component {
 			});
 	}
 
-	componentWillReceiveProps(nextProps) {
+	componentDidUpdate() {
 		// if (this.props.token !== '') {
 		// 	const resetAction = NavigationActions.reset({
 		// 		index: 0,
