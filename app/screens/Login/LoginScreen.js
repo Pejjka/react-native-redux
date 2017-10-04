@@ -41,11 +41,7 @@ class LoginScreen extends React.Component {
 			});
 	}
 
-  render() {
-		const { navigate } = this.props.navigation;
-		//navigate('Home');
-		const {user} = this.props.user;
-
+	componentWillReceiveProps(nextProps) {
 		// if (this.props.token !== '') {
 		// 	const resetAction = NavigationActions.reset({
 		// 		index: 0,
@@ -56,6 +52,11 @@ class LoginScreen extends React.Component {
 			
 		// 	this.props.navigation.dispatch(resetAction);
 		// }
+	 }
+
+  render() {
+		const { navigate } = this.props.navigation;
+		const {user} = this.props.user;
 
     return (
 			<View style={styles.container}>
